@@ -4,7 +4,12 @@ const App = (props) => {
   const anecdotes = props.store.getState()
 
   const vote = (id) => {
-    console.log('vote', id)
+    props.store.dispatch({
+      type: 'vote',
+      data: {
+        id: id
+      }
+    })
   }
 
   return (
@@ -16,7 +21,7 @@ const App = (props) => {
             {anecdote.content}
           </div>
           <div>
-            has {anecdote.votes}
+            has {anecdote.votes} 
             <button onClick={() => vote(anecdote.id)}>vote</button>
           </div>
         </div>
