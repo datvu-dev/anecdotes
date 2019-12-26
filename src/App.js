@@ -5,7 +5,6 @@ import AnecdoteList from './components/AnecdoteList';
 const App = (props) => {
   return (
     <div>
-      
       <AnecdoteList store={props.store} />
       <AnecdoteForm store={props.store} />
     </div>
