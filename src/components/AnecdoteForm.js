@@ -1,22 +1,12 @@
 import React from 'react'
+import { addNewAnecdote } from '../reducers/anecdoteReducer'
 
 const AnecdoteForm = (props) => {
-    const generateId = () => {
-        return (100000 * Math.random()).toFixed(0)
-    } 
-
     const addNew = (event) => {
         event.preventDefault()
         const content = event.target.anecdote.value
     
-        props.store.dispatch({
-          type: 'new',
-          data: {
-            content,
-            votes: 0,
-            id: generateId()
-          }
-        })
+        props.store.dispatch(addNewAnecdote(content))
         
         event.target.anecdote.value = ''
     }
