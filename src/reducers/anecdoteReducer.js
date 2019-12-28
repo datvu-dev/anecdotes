@@ -26,14 +26,10 @@ export const initializeAnecdotes = (anecdotes) => {
   }
 }
 
-export const addNewAnecdote = (content) => {
+export const addNewAnecdote = (data) => {
   return {
     type: 'new_anecdote',
-    data: {
-      content,
-      votes: 0,
-      id: getId()
-    }
+    data
   }
 }
 
