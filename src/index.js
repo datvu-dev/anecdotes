@@ -14,8 +14,8 @@ const reducer = combineReducers({
 
 const store = createStore(reducer)
 
-anecdoteService.getAll().then(notes =>
-  store.dispatch(initializeAnecdotes(notes))
+anecdoteService.getAll().then(anecdotes =>
+  store.dispatch(initializeAnecdotes(anecdotes))
 )
 
 console.log(store.getState())
