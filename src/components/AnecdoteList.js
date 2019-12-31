@@ -6,9 +6,14 @@ import { setNotification, removeNotification } from '../reducers/notificationRed
 const AnecdoteList = (props) => {
     const anecdotes = props.anecdotes
 
-    const vote = (id, title) => {
-        props.voteForAnecdote(id)
-        props.setNotification('You voted for ' + title)
+    const vote = (anecdote) => {
+        let changedAnecdoteObject = {
+          content: anecdote.content,
+          votes: anecdote.votes + 1
+        }
+
+        props.voteForAnecdote(anecdote.id, changedAnecdoteObject)
+        props.setNotification('You voted for ' + anecdote.content)
 
         setTimeout(() => {
           props.removeNotification()
@@ -25,7 +30,7 @@ const AnecdoteList = (props) => {
             </div>
             <div>
                 has {anecdote.votes} 
-                <button onClick={() => vote(anecdote.id, anecdote.content)}>vote</button>
+                <button onClick={() => vote(anecdote)}>vote</button>
             </div>
             </div>
         )}
