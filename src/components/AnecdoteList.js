@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './Header'
 import { connect } from 'react-redux'
 import { voteForAnecdote } from '../reducers/anecdoteReducer'
 import { setNotification, removeNotification } from '../reducers/notificationReducer'
@@ -22,7 +23,9 @@ const AnecdoteList = (props) => {
 
     return (
       <div>
-        <h2>Anecdotes</h2>
+        <Header>
+          <h2>Anecdotes</h2>
+        </Header>
         {anecdotes.map(anecdote =>
             <div key={anecdote.id}>
             <div>
